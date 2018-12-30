@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin")
+const webpack = require("webpack")
 const path = require("path")
 
 module.exports = {
@@ -10,6 +11,14 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "src/index.html")
-    })
-  ]
+    }),
+    new webpack.HotModuleReplacementPlugin()
+  ],
+  devServer: {
+    compress: true,
+    historyApiFallback: true,
+    hot: true,
+    open: true,
+    port: 6666
+  }
 }

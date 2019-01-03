@@ -3,12 +3,14 @@ const webpack = require("webpack")
 const path = require("path")
 
 module.exports = {
+  mode: "development",
   entry: path.resolve(__dirname, "src/index.js"),
   output: {
-    path: path.resolve(__dirname, "/dist"),
+    path: path.resolve(__dirname, "dist"),
     filename: "index_bundle.js"
   },
   plugins: [
+    // github.com/jantimon/html-webpack-plugin/issues/895
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "src/index.html")
     }),
@@ -18,8 +20,7 @@ module.exports = {
     compress: true,
     historyApiFallback: true,
     hot: true,
-    open: true,
-    port: 6666
+    port: 3003
   },
   module: {
     rules: [
@@ -27,8 +28,14 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
-        }
+          loader: "babel-loader",
+          options: {
+            presets: [
+              "@babel/preset-env", 
+              "@babel/preset-react"
+            ]
+          }
+        },
       }
     ]
   }  

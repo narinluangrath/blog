@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const webpack = require("webpack")
 const path = require("path")
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
 module.exports = {
   mode: "development",
@@ -15,7 +16,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "src/index.html")
     }),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new BundleAnalyzerPlugin({ openAnalyzer: false })
   ],
   devServer: {
     compress: true,

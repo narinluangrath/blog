@@ -9,7 +9,10 @@
   "author": "Narin Luangrath",
   "license": "UNLICENSED",
   "private": true,
-  "workspaces": [ 
-    "packages/*" 
-  ]
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "jest": "^23.6.0"
+  }
 }

@@ -2,6 +2,9 @@
   "name": "blog-client",
   "version": "0.0.1",
   "license": "UNLICENSED",
+  "scripts": {
+    "build": "./node_modules/.bin/webpack --config ./webpack.config.js"
+  },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",

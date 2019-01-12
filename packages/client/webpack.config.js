@@ -23,7 +23,8 @@ module.exports = {
     compress: true,
     historyApiFallback: true,
     hot: true,
-    port: 3003
+    port: 3003,
+    contentBase: path.resolve(__dirname, "src/assets")
   },
   module: {
     rules: [
